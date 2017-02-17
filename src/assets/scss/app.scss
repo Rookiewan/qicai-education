@@ -1,0 +1,363 @@
+@import "reset";
+@import "mixins";
+@import "icons";
+@import "buttons";
+@import "components";
+@import "commoms";
+@import "animations";
+@import "index";
+@import "questions";
+@import "apply";
+@import "rules";
+
+body {
+  background: #fff;
+  line-height: 1;
+  margin-top: 90px;
+}
+
+li,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+hr {
+  margin: 0;
+  border-color: #ddd;
+}
+
+.site-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  line-height: 90px;
+  background: rgba(255, 255, 255, .7);
+  z-index: 10;
+
+  .inner {
+    width: 960px;
+    margin: 0 auto;
+    // min-width: 960px;
+    // max-width: 960px;
+  }
+
+  .logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 324px;
+    height: 59px;
+  }
+}
+
+.site-con {
+  width: 960px;
+  margin: 0 auto;
+
+  .banner {
+    width: 960px;
+    height: 380px;
+  }
+
+  .section {
+    position: relative;
+    margin-top: 60px;
+    text-align: center;
+
+    > .header {
+      text-align: left;
+      position: relative;
+      padding-left: 44px;
+
+      > .icon {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -24px;
+      }
+
+      > .title {
+        font-size: 30px;
+        color: #3bc25b;
+      }
+
+      > .subtitle {
+        font-size: 18px;
+        color: #9de9af;
+        margin-top: 6px;
+      }
+    }
+
+    > p.desc {
+      font-size: 16px;
+      color: #3d3d3d;
+      line-height: 1.5;
+      margin-top: 36px;
+      text-align: left;
+    }
+  }
+
+  .school-logos {
+    margin-top: 26px;
+    margin-bottom: 60px;
+
+    ul {
+      @extend %cf;
+
+      > li {
+        width: 124px;
+        float: left;
+        margin: 28px 0 0 58px;
+
+        img {
+          display: block;
+          width: 124px;
+          height: 124px;
+        }
+
+        .name {
+          margin-top: 8px;
+          display: block;
+          font-size: 14px;
+          color: #ababab;
+        }
+      }
+    }
+  }
+
+  .promise {
+    display: inline-block;
+    margin-bottom: 60px;
+
+    > p {
+      margin-top: 53.5px;
+      font-size: 26px;
+      color: #333;
+      font-weight: 700;
+      line-height: 1.5;
+
+      span {
+        color: #3bc25b;
+      }
+    }
+
+    ul {
+      margin-top: 43.5px;
+      @extend %cf;
+
+      li {
+        width: 150px;
+        float: left;
+
+        &~li {
+          margin-left: 165px;
+        }
+      }
+    }
+
+    .promise-title {
+      display: block;
+      color: #333;
+      font-size: 20px;
+      margin-top: 18px;
+    }
+  }
+
+  .section-2 {
+    margin-top: 60px;
+
+    > .header {
+      .inner {
+        display: inline-block;
+        position: relative;
+
+        > .icon {
+          position: absolute;
+          left: -44px;
+          top: 50%;
+          margin-top: -24px;
+        }
+
+        > .title {
+          font-size: 30px;
+          color: #3bc25b;
+        }
+
+        > .subtitle {
+          font-size: 18px;
+          color: #9de9af;
+          margin-top: 6px;
+        }
+      }
+    }
+
+    .con {
+      ul {
+        @extend %cf;
+        margin-top: 36px;
+        padding-left: 100px;
+
+        li {
+          position: relative;
+          float: left;
+          width: 350px;
+          height: 350px;
+          color: #fff;
+          text-align: left;
+          margin: 0 60px 60px 0;
+          background: url('../img/item1.jpg') no-repeat center center;
+          background-size: 350px 350px;
+
+          .title {
+            font-size: 30px;
+            line-height: 1.5;
+            margin: 31.7px 0 0 35px;
+          }
+
+          p {
+            position: absolute;
+            left: 0;
+            top: 168.5px;
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 31.7px 0 0 35px;
+          }
+        }
+      }
+    }
+  }
+
+  .registration-process {
+    width: 960px;
+    overflow: hidden;
+    margin-bottom: 70px;
+
+    .ext-info {
+      text-align: left;
+      font-size: 18px;
+      color: #888;
+    }
+
+    ul {
+      @extend %cf;
+      position: relative;
+      width: 960px;
+      height: 246px;
+      margin: 50px 0 70px;
+
+      li {
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        left: 37px;
+        $eachLeft: 240px;
+
+        &[order="2"],
+        &[order="7"] {
+          left: $eachLeft + 37px;
+        }
+
+        &[order="3"],
+        &[order="6"] {
+          left: $eachLeft * 2 + 37px;
+        }
+
+        &[order="4"],
+        &[order="5"] {
+          left: $eachLeft * 3 + 37px;
+        }
+
+        &[order="1"],
+        &[order="2"],
+        &[order="3"],
+        &[order="4"] {
+          top: 0;
+        }
+
+        &[order="5"],
+        &[order="6"],
+        &[order="7"],
+        &[order="8"] {
+          top: 160px;
+        }
+
+        .title {
+          position: absolute;
+          font-size: 24px;
+          color: #333;
+          width: 960px;
+          left: 50%;
+          margin-left: -480px;
+        }
+
+        .icon-circle {
+          margin-top: 42px;
+        }
+
+        .icon-arrow-left,
+        .icon-arrow-right {
+          position: absolute;
+          left: 109px;
+          top: 42px + 22.5px;
+          margin-top: -8px;
+        }
+
+        .icon-arrow-bending {
+          position: absolute;
+          top: 42px + 22.5px;
+          left: 98px;
+        }
+      }
+    }
+  }
+
+  .problems {
+    text-align: left;
+
+    ul {
+      padding-left: 30px;
+
+      li {}
+    }
+
+    .question {
+      position: relative;
+      font-size: 20px;
+      color: #333;
+      margin-top: 40px;
+    }
+
+    .answer {
+      font-size: 16px;
+      color: #888;
+      line-height: 1.5;
+      margin-top: 18px;
+    }
+
+    .icon-small {
+      position: absolute;
+      left: -21px;
+      top: 50%;
+      margin-top: -5.5px;
+    }
+  }
+}
+
+.site-footer {
+  text-align: center;
+
+  img.QRcode {
+    display: inline-block;
+    width: 258px;
+    height: 258px;
+  }
+
+  .QRcode-desc {
+    font-size: 18px;
+    line-height: 1.2;
+    color: #000;
+    margin: 24.8px 0 58.2px;
+  }
+}

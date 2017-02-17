@@ -1,0 +1,65 @@
+$icons: sprite-map("icons/*.png", $layout: vertical);
+$prefix: 'icon-';
+$icons-spacing: 1px;
+
+.icons-sprite {
+  background-image: sprite-url($icons);
+}
+@mixin fnIcon($name) {
+  $name: $prefix + $name;
+  width: image-width(sprite-file($icons, $name));
+  height: image-height(sprite-file($icons, $name));
+  background-image: sprite-url($icons);
+  background-position: sprite-position($icons, $name);
+  background-repeat: no-repeat;
+  //background-size: image-width('icons-/*/.png') image-height('icons-/*/.png');
+}
+
+.icon {
+  display: inline-block;
+  // width: 90px;
+  // height: 90px;
+  vertical-align: middle;
+}
+
+.icon-logo {
+  @include fnIcon(logo);
+}
+
+.icon-pencil {
+  @include fnIcon(pencil);
+}
+
+.icon-book {
+  @include fnIcon(book);
+}
+
+.icon-cap {
+  @include fnIcon(cap);
+}
+
+.icon-arrow-left {
+  @include fnIcon(arrow-left);
+}
+
+.icon-arrow-right {
+  @include fnIcon(arrow-right);
+}
+
+.icon-arrow-bending {
+  @include fnIcon(arrow-bending);
+}
+// .icon-arrow-small {
+//   @include fnIcon(arrow-small);
+// }
+
+.icon-circle {
+  width: 45px;
+  height: 45px;
+  background: #3bc25b;
+  color: #fff;
+  font-size: 27px;
+  font-style: normal;
+  border-radius: 50%;
+  line-height: 45px;
+}
