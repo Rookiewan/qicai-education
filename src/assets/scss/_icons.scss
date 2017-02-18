@@ -49,9 +49,14 @@ $icons-spacing: 1px;
 .icon-arrow-bending {
   @include fnIcon(arrow-bending);
 }
-// .icon-arrow-small {
-//   @include fnIcon(arrow-small);
-// }
+
+.icon-arrow-small {
+  width: 10px;
+  height: 11px;
+  background-image: url('../img/icon-arrow-small.jpg');
+  background-size: 10px 11px;
+  background-repeat: no-repeat;
+}
 
 .icon-circle {
   width: 45px;

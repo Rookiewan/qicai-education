@@ -24,7 +24,34 @@ ul {
 
 hr {
   margin: 0;
-  border-color: #ddd;
+  border-color: #f0f0f0;
+}
+
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 960px;
+  text-align: left;
+  // .th,
+  // .tr {
+  //   display: table-row;
+  // }
+  .td {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20px;
+    width: 202px;
+    height: 50px;
+    color: #888;
+
+    &.cell {
+      color: #333;
+    }
+
+    span {
+      color: #3bc25b;
+    }
+  }
 }
 
 .site-header {
@@ -36,6 +63,7 @@ hr {
   line-height: 90px;
   background: rgba(255, 255, 255, .7);
   z-index: 10;
+  border-bottom: 1px solid #f0f0f0;
 
   .inner {
     width: 960px;
@@ -54,11 +82,15 @@ hr {
 
 .site-con {
   width: 960px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
 
   .banner {
     width: 960px;
     height: 380px;
+
+    img {
+      display: block;
+    }
   }
 
   .section {
@@ -93,7 +125,7 @@ hr {
     > p.desc {
       font-size: 16px;
       color: #3d3d3d;
-      line-height: 1.5;
+      line-height: 1.8;
       margin-top: 36px;
       text-align: left;
     }
@@ -136,7 +168,7 @@ hr {
       font-size: 26px;
       color: #333;
       font-weight: 700;
-      line-height: 1.5;
+      line-height: 1.8;
 
       span {
         color: #3bc25b;
@@ -144,7 +176,7 @@ hr {
     }
 
     ul {
-      margin-top: 43.5px;
+      margin-top: 42px;
       @extend %cf;
 
       li {
@@ -189,6 +221,7 @@ hr {
           font-size: 18px;
           color: #9de9af;
           margin-top: 6px;
+          text-align: left;
         }
       }
     }
@@ -210,19 +243,35 @@ hr {
           background: url('../img/item1.jpg') no-repeat center center;
           background-size: 350px 350px;
 
+          &[item="2"] {
+            background: url('../img/item2.jpg') no-repeat center center;
+            background-size: 350px 350px;
+          }
+
+          &[item="3"] {
+            background: url('../img/item3.jpg') no-repeat center center;
+            background-size: 350px 350px;
+          }
+
+          &[item="4"] {
+            background: url('../img/item4.jpg') no-repeat center center;
+            background-size: 350px 350px;
+          }
+
           .title {
             font-size: 30px;
-            line-height: 1.5;
+            line-height: 1.6;
             margin: 31.7px 0 0 35px;
           }
 
           p {
             position: absolute;
             left: 0;
-            top: 168.5px;
+            top: 135px;
             font-size: 18px;
-            line-height: 1.5;
+            line-height: 1.8;
             margin: 31.7px 0 0 35px;
+            padding-right: 45px;
           }
         }
       }
@@ -322,6 +371,13 @@ hr {
       li {}
     }
 
+    .icon-arrow-small {
+      position: absolute;
+      top: 50%;
+      margin-top: -5.5px;
+      left: -21px;
+    }
+
     .question {
       position: relative;
       font-size: 20px;
@@ -332,8 +388,13 @@ hr {
     .answer {
       font-size: 16px;
       color: #888;
-      line-height: 1.5;
+      line-height: 1.8;
       margin-top: 18px;
+
+      a {
+        color: #0078d9;
+        text-decoration: underline;
+      }
     }
 
     .icon-small {
@@ -342,11 +403,42 @@ hr {
       top: 50%;
       margin-top: -5.5px;
     }
+
+    .table {
+      margin-top: 10px;
+
+      .th {
+        &:nth-child(1) {
+          background: #f4f4f4;
+        }
+        background: #f4f4f4;
+      }
+
+      .tr {
+        &:nth-child(odd) {
+          background: #f4f4f4;
+        }
+      }
+
+      .td {
+        padding-left: 23px;
+
+        &~.td {
+          width: 376px;
+        }
+
+        &.td2 {
+          width: 315px;
+        }
+      }
+    }
   }
 }
 
 .site-footer {
   text-align: center;
+  background: #f4f4f4;
+  padding: 55px 0 58.2px;
 
   img.QRcode {
     display: inline-block;
@@ -358,6 +450,106 @@ hr {
     font-size: 18px;
     line-height: 1.2;
     color: #000;
-    margin: 24.8px 0 58.2px;
+    margin: 24.8px 0 0;
   }
+}
+
+.tips {
+  display: none;
+}
+/*
+ * jQuery图片轮播(焦点图)插件
+ * ADD.JENA.201206291027
+ * EDIT.JENA.201206300904
+ * Author: jena
+ * Demo: http://ishere.cn/demo/jquery.slidebox/
+ */
+div.slideBox {
+  position: relative;
+  width: 670px;
+  height: 300px;
+  overflow: hidden;
+}
+
+div.slideBox ul.items {
+  position: absolute;
+  float: left;
+  background: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+div.slideBox ul.items li {
+  float: left;
+  background: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+div.slideBox ul.items li a {
+  float: left;
+  line-height: normal !important;
+  padding: 0 !important;
+  /*For IE.ADD.JENA.201206300844*/
+  border: none;
+}
+
+div.slideBox ul.items li a img {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block;
+  /*For IE.ADD.JENA.201206300844*/
+  border: none;
+}
+
+div.slideBox div.tips {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  overflow: hidden;
+}
+
+div.slideBox div.tips div.title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+div.slideBox div.tips div.title a {
+  color: #FFF;
+  font-size: 18px;
+  line-height: 50px;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+div.slideBox div.tips div.title a:hover {
+  text-decoration: underline !important;
+}
+
+div.slideBox div.tips div.nums {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+
+div.slideBox div.tips div.nums a {
+  display: inline-block;
+  /*For IE.ADD.JENA.201206300844*/
+  float: left;
+  width: 20px;
+  height: 20px;
+  background-color: #FFF;
+  text-indent: -99999px;
+  margin: 15px 10px 0 0;
+}
+
+div.slideBox div.tips div.nums a.active {
+  background-color: #093;
 }
